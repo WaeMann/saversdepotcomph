@@ -2,9 +2,11 @@ INSTRUCTIONS
 
 1. Download, copy, or share the file from github: https://github.com/WaeMann/saversdepotcomph.git
 
-2. Open the folder/file on your IDE. If no IDE, copy-paste to notepad. If no notepad proceed to 3.
+2. Extract the zip fles.
 
-3. Run the file on your browser.
+3. Open the folder/file on your IDE. If no IDE, copy-paste to notepad. If no notepad proceed to 3.
+
+4. Run the file on your browser.
 
 _______________________________________________
 
