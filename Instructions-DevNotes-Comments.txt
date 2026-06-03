@@ -26,6 +26,8 @@ DevComments
 
 -Made by Group 4 for subject-PF1. To be submitted to Ms. Ma. Femia Moreno.
 
+-This is only a draft. Expect bugs and glitches.
+
 -Asked some people I know and made them choose which design looks good visually(no functionality, no features, etc.) between the current and the one I made. 
 Here's what they think:
 
@@ -41,3 +43,5 @@ Source:TrustMeBruvReal.com
 Just kiddin'. Please don't hesitate to tell the devs what you think. We're all aiming to improve the project. Or
 
 -You can request a repository pull from github if you'd like to tweak the main file on your own. I created the repository so we can all easily work on the project together. 
+
+-Look out for updates. Check out the github "Last committed" time/dates for the latest updates.
