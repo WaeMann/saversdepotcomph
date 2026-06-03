@@ -36,6 +36,6 @@ New: II
 Source:trustmebruv.com
 
 -If you'd like to add, change, remove some of the features and designs, and/or even create a new website, bayad muna 100php.
-Just kiddin'. Please don't hesitate to tell the devs what you think. We're all aiming to improve the project.
+Just kiddin'. Please don't hesitate to tell the devs what you think. We're all aiming to improve the project. Or
 
--I created the repository so we can all easily work on the project together. You can request a repository pull from github if you'd like to tweak the main file on your own.
+-You can request a repository pull from github if you'd like to tweak the main file on your own. I created the repository so we can all easily work on the project together. 
