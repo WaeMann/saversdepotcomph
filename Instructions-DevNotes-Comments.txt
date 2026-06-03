@@ -1,0 +1,41 @@
+INSTRUCTIONS
+
+1. Download, copy, or share the file from github: https://github.com/WaeMann/saversdepotcomph.git
+
+2. Open the folder/file on your IDE. If no IDE, copy-paste to notepad. If no notepad proceed to 3.
+
+3. Run the file on your browser.
+
+_______________________________________________
+
+DevNuts
+
+*-Pending
+**-Fixed/Ignored
+***-New
+
+*Add chatbot
+*Some of the buttons does not work the same as the real website. That is intended and will only be added if necessary.
+**Firewall??
+*Change the design/theme
+_______________________________________________
+
+DevComments
+
+-This website is for educational purposes only and is not intended for commercial use. 
+
+-Made by Group 4 for subject-PF1. To be submitted to Ms. Ma. Femia Moreno.
+
+-Asked some people I know and made them choose which design looks good visually(no functionality, no features, etc.) between the current and the one I made. 
+Here's what they think:
+
+Current: II
+Neutral: I
+New: II
+
+Source:trustmebruv.com
+
+-If you'd like to add, change, remove some of the features and designs, and/or even create a new website, bayad muna 100php.
+Just kiddin'. Please don't hesitate to tell the devs what you think. We're all aiming to improve the project.
+
+-I created the repository so we can all easily work on the project together. You can request a repository pull from github if you'd like to tweak the main file on your own.
