@@ -2,9 +2,9 @@ INSTRUCTIONS
 
 1. Download, copy, or share the file from github: https://github.com/WaeMann/saversdepotcomph.git
 
-2. Extract the zip fles.
+2. Extract the zip file.
 
-3. Open the folder/file on your IDE. If no IDE, copy-paste to notepad. If no notepad proceed to 3.
+3. Open the folder/file on your IDE. If no IDE, copy-paste to notepad. If no notepad proceed to 4.
 
 4. Run the file on your browser.
 
@@ -14,12 +14,19 @@ DevNuts
 
 *-Pending
 **-Fixed/Ignored
-***-New
+***-New(Priority)
 
-*Add chatbot
-*Some of the buttons does not work the same as the real website. That is intended and will only be added if necessary.
-**Firewall??
+**Add chatbot
+***Fix chatbot
+*Some of the buttons does not work compared the real website. That is intended and will only be added if necessary or until the new features are added.
+**Firewall?? - not needed 
 *Change the design/theme
+*Add accounts. (Need database)
+*Add promotional/ads products (No accounts- new products. With account- Products based on recent searches/personal info[?])
+*Add more products and career choices.
+*Add ordering system.
+**Removed message from old file
+
 _______________________________________________
 
 DevComments
@@ -28,7 +35,7 @@ DevComments
 
 -Made by Group 4 for subject-PF1. To be submitted to Ms. Ma. Femia Moreno.
 
--This is only a draft. Expect bugs and glitches.
+-This is only a draft. Expect bugs, errors, and glitches.
 
 -Asked some people I know and made them choose which design looks good visually(no functionality, no features, etc.) between the current and the one I made. 
 Here's what they think:
@@ -43,19 +50,21 @@ E- Mas madaling makita yung mga nakalagay (tinuturo yung About Us at Goals)
 M- Modern itsura di mukhang government website
 
 Neutral:
-M- Parehas lang e
+M- Di ko alam HAHAHAHA
 
 Current:
-N- Mas maganda kulay
+N- Mas maganda yung kulay
 C- Ou luma maganda
 
 Source:TrustMeBruvReal.com
 
--Had to use AI due to time and work constraints.
+-Had to use AI due to time and work constraints. 
+
+-Hate database 
 
 -If you'd like to add, change, remove some of the features and designs, and/or even create a new website, bayad muna 100php.
-Just kiddin'. Please don't hesitate to tell the devs what you think. We're all aiming to improve the project. Or
+Just kiddin'. Please don't hesitate to ask or tell the devs what you think and what we should do. We're all aiming to improve the project, Or-
 
--You can request a repository pull from github if you'd like to tweak the main file on your own. I created the repository so we can all easily work on the project together. 
+-You can request a repository pull from github if you'd like to tweak the main file on your own. I created the repository so we can all easily work on the project together.
 
 -Look out for updates. Check out the github "Last committed" time/dates for the latest updates.
