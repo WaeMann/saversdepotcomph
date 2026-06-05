@@ -73,13 +73,20 @@ Source:TrustMeBruvReal.com
 
 -Hate database 
 
--Free Gemini API key: "Aremovethist3xtQ . Ab8RN6JhjGWPTTOK3dCjLz _ frj1ztQjiHvjpdvEacnMNeG7jyQ" - Default Project Key (remove "removethist3xt" and the spaces)
+-Wag i-save or i-share yung key. Pag na detect, block, at delete ni Google yan di na ko pwede gumawa ng bago. 
+Di gagana chatbot pag wala yan. 
 
--NEED INTERNET CONNECTION. Since the chatbot uses AI from Google Gemini's server to receive and send messages, internet connection is required.
+-Free Gemini API key: "Aremovethist3xtQ . Ab8RN6JhjGWPTTOK3dCjLz _ frj1ztQjiHvjpdvEacnMNeG7jyQ" - 
+Default Project Key (remove "removethist3xt" and the spaces)
+
+-NEED INTERNET CONNECTION. Since the chatbot uses AI from Google Gemini's server to receive and send messages, 
+internet connection is required.
 
 -If you'd like to add, change, remove some of the features and designs, and/or even create a new website, bayad muna 100php.
-Just kiddin'. Please don't hesitate to ask or tell the devs what you think and what we should do. We're all aiming to improve the project, Or-
+Just kiddin'. Please don't hesitate to ask or tell the devs what you think and what we should do. 
+We're all aiming to improve the project, Or-
 
--You can request a repository pull from github if you'd like to tweak the main file on your own. I created the repository so we can all easily work on the project together.
+-You can request a repository pull from github if you'd like to tweak the main file on your own. 
+I created the repository so we can all easily work on the project together.
 
 -Look out for updates. Check out the github "Last committed" time/dates for the latest updates.
