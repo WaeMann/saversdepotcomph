@@ -6,6 +6,15 @@ INSTRUCTIONS
 
 3. Open the folder/file on your IDE. If no IDE, copy-paste to notepad. If no notepad proceed to 4.
 
+4. To make the chatbot work, copy the API key below.
+
+In the .html file, find this part (In the chatbot functions):
+
+// ══════════════ CHATBOT ══════════════
+// ⬇️ PASTE YOUR FREE GEMINI API KEY HERE
+// Get one free at: https://aistudio.google.com/app/apikey
+const GEMINI_API_KEY = 'YOUR_GEMINI_API_KEY_HERE'; <<Paste the key here 
+
 4. Run the file on your browser.
 
 _______________________________________________
@@ -63,7 +72,7 @@ Source:TrustMeBruvReal.com
 
 -Hate database 
 
--Free Gemini API key: "AQ.Ab8RN6JTzGhp380KNnQHWu56-wc0Q-YzUyLLjOa9IIGOB3DXZQ" - Default Project Key 
+-Free Gemini API key: "AQ(.)Ab8RN6JTzGhp380KNnQHWu56(-)wc0Q(-)YzUyLLjOa9IIGOB3DXZQ" - Default Project Key [remove ()]
 
 -NEED INTERNET CONNECTION. Since the chatbot uses AI from Google Gemini's server to receive and send messages, internet connection is required.
 
