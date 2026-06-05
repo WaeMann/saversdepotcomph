@@ -17,7 +17,7 @@ DevNuts
 ***-New(Priority)
 
 **Add chatbot
-***Fix chatbot
+**Fix chatbot
 *Some of the buttons does not work compared the real website. That is intended and will only be added if necessary or until the new features are added.
 **Firewall?? - not needed 
 *Change the design/theme
@@ -62,6 +62,10 @@ Source:TrustMeBruvReal.com
 -Had to use AI due to time and work constraints. 
 
 -Hate database 
+
+-Free Gemini API key: "AQ.Ab8RN6JTzGhp380KNnQHWu56-wc0Q-YzUyLLjOa9IIGOB3DXZQ" - Default Project Key 
+
+-NEED INTERNET CONNECTION. Since the chatbot uses AI from Google Gemini's server to receive and send messages, internet connection is required.
 
 -If you'd like to add, change, remove some of the features and designs, and/or even create a new website, bayad muna 100php.
 Just kiddin'. Please don't hesitate to ask or tell the devs what you think and what we should do. We're all aiming to improve the project, Or-

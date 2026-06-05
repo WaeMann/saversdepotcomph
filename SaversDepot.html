@@ -866,9 +866,13 @@ function animateNewCards(container){container.querySelectorAll('.prod-card,.job-
 const scrollObs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';}});},{threshold:.1});
 
 // ══════════════ CHATBOT ══════════════
+// ⬇️ PASTE YOUR FREE GEMINI API KEY HERE
+// Get one free at: https://aistudio.google.com/app/apikey
+const GEMINI_API_KEY = 'AQ.Ab8RN6JTzGhp380KNnQHWu56-wc0Q-YzUyLLjOa9IIGOB3DXZQ';
+
 const CHAT_SYSTEM = `You are the friendly and knowledgeable assistant for Savers Depot, a Philippine hardware and building materials store with 20+ years of experience. You help customers with:
 
-PRODUCTS (${PRODUCTS.length} items across these categories):
+PRODUCTS (many items across these categories):
 - Tiles: Wall tiles, floor tiles, outdoor tiles, mosaic (₱320–₱680/pc or sqm)
 - Bathroom: Sanitary ware, showers, faucets, bathtubs, accessories
 - Paints: Boysen, Davies brands; latex, enamel, roof paints, primers
@@ -955,6 +959,11 @@ async function sendChat(){
   const btn=document.getElementById('chatSendBtn');
   const text=input.value.trim();
   if(!text||chatIsLoading)return;
+
+  if(!GEMINI_API_KEY||GEMINI_API_KEY==='YOUR_GEMINI_API_KEY_HERE'){
+    addBotMessage("⚠️ Please open the HTML file and replace <strong>YOUR_GEMINI_API_KEY_HERE</strong> with your free Gemini API key.<br><br>Get one free at: <a href='https://aistudio.google.com/app/apikey' target='_blank'>aistudio.google.com</a>");
+    return;
+  }
   
   input.value='';
   input.style.height='auto';
@@ -966,21 +975,33 @@ async function sendChat(){
   showTyping();
   
   try{
-    const resp=await fetch('https://api.anthropic.com/v1/messages',{
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({
-        model:'claude-sonnet-4-20250514',
-        max_tokens:1000,
-        system:CHAT_SYSTEM,
-        messages:chatHistory.slice(-12)
-      })
-    });
+    // Build Gemini contents array from history
+    const contents=chatHistory.slice(-6).map(m=>({
+      role: m.role==='assistant'?'model':'user',
+      parts:[{text:m.content}]
+    }));
+
+    const resp=await fetch(
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`,
+      {
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({
+          system_instruction:{parts:[{text:CHAT_SYSTEM}]},
+          contents,
+          generationConfig:{maxOutputTokens:800,temperature:0.7}
+        })
+      }
+    );
     const data=await resp.json();
     hideTyping();
-    const reply=data.content?.map(c=>c.text||'').join('')||"Sorry, I couldn't process that. Please try again or call us at +63 32 422-6223.";
-    chatHistory.push({role:'assistant',content:reply});
-    addBotMessage(reply);
+    if(data.error){
+      addBotMessage(`Error: ${data.error.message}. Please check your API key.`);
+    }else{
+      const reply=data.candidates?.[0]?.content?.parts?.[0]?.text||"Sorry, I couldn't process that. Please call us at +63 32 422-6223.";
+      chatHistory.push({role:'assistant',content:reply});
+      addBotMessage(reply);
+    }
   }catch(err){
     hideTyping();
     addBotMessage("Sorry, I'm having trouble connecting right now. Please call us at +63 32 422-6223 or email info@saversdepot.com.ph for assistance.");
