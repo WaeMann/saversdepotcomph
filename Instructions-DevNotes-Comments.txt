@@ -36,6 +36,7 @@ DevNuts
 *Add more products and career choices.
 *Add ordering system.
 **Removed message from old file
+*Add interactive map for the branches.
 
 _______________________________________________
 
