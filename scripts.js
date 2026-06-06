@@ -75,6 +75,36 @@ function showToast(msg){const t=document.getElementById('toast');document.getEle
 function animateNewCards(container){container.querySelectorAll('.prod-card,.job-card,.branch-card,.blog-card,.why-card,.cat-card,.perk-card').forEach((el,i)=>{el.style.opacity='0';el.style.transform='translateY(16px)';el.style.transition=`opacity 0.4s ease ${i*0.04}s, transform 0.4s ease ${i*0.04}s`;requestAnimationFrame(()=>requestAnimationFrame(()=>{el.style.opacity='1';el.style.transform='translateY(0)';}));});}
 const scrollObs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';}});},{threshold:.1});
 
+function showBranchMap(branchName, mapUrl) {
+  const iframe = document.getElementById("branchMap");
+  const label = document.getElementById("mapBranchName");
+
+  iframe.style.opacity = "0";
+
+  setTimeout(() => {
+    iframe.src = mapUrl;
+    label.textContent = branchName;
+    iframe.style.opacity = "1";
+
+    document.getElementById("mapContainer")
+      .scrollIntoView({ behavior: "smooth", block: "center" });
+  }, 150);
+}
+
+function showBranchMap(branchName, mapUrl) {
+  document.querySelectorAll('.branch-card').forEach(card => {
+    card.classList.remove('active');
+  });
+
+  event.currentTarget.classList.add('active');
+
+  const iframe = document.getElementById("branchMap");
+  const label = document.getElementById("mapBranchName");
+
+  iframe.src = mapUrl;
+  label.textContent = branchName;
+}
+
 // ══════════════ CHATBOT ══════════════
 // ⬇️ PASTE YOUR FREE GEMINI API KEY HERE
 //
