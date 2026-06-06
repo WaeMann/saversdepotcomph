@@ -7,7 +7,7 @@ INSTRUCTIONS
 3. Open the folder/file on your IDE. If no IDE, copy-paste to notepad. If no notepad proceed to 5.
 
 4. To make the chatbot work. Copy the API key below,
-Go to .html file, find this function 
+Go to scripts.js file, find the chatbot function:
 
 // ══════════════ CHATBOT ══════════════
 // ⬇️ PASTE YOUR FREE GEMINI API KEY HERE
@@ -16,7 +16,7 @@ const GEMINI_API_KEY = 'YOUR_GEMINI_API_KEY_HERE'; <<Change to API key
 
 Paste the key 
 
-5. Run the file on your browser.
+5. Run the .html file on your browser.
 
 _______________________________________________
 
@@ -73,6 +73,8 @@ Source:TrustMeBruvReal.com
 -Had to use AI due to time and work constraints. 
 
 -Hate database 
+
+-File was too long, had to separate into 3 files.
 
 -Wag i-save or i-share yung key. Pag na detect, block, at delete ni Google yan di na ko pwede gumawa ng bago. 
 Di gagana chatbot pag wala yan. 
