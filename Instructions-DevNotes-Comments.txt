@@ -80,8 +80,8 @@ Di gagana chatbot pag wala yan.
 -Free Gemini API key: "Aremovethist3xtQ . Ab8RN6JhjGWPTTOK3dCjLz _ frj1ztQjiHvjpdvEacnMNeG7jyQ" - 
 Default Project Key (remove "removethist3xt" and the spaces)
 
--NEED INTERNET CONNECTION. Since the chatbot uses AI from Google Gemini's server to receive and send messages, 
-internet connection is required.
+-NEED INTERNET CONNECTION. Since the chatbot uses AI from Google Gemini's server to receive and send messages,
+and the images are from the website itself, internet connection is required.
 
 -If you'd like to add, change, remove some of the features and designs, and/or even create a new website, bayad muna 100php.
 Just kiddin'. Please don't hesitate to ask or tell the devs what you think and what we should do. 
