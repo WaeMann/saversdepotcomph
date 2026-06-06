@@ -975,7 +975,7 @@ async function sendChat(){
   showTyping();
   
   try{
-    // Build Gemini contents array from history
+    //
     const contents=chatHistory.slice(-6).map(m=>({
       role: m.role==='assistant'?'model':'user',
       parts:[{text:m.content}]
@@ -1035,7 +1035,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     el.style.transition='opacity 0.5s ease, transform 0.5s ease';
     scrollObs.observe(el);
   });
-  // Auto-open chat with greeting after 1.5 seconds
+  //
   setTimeout(()=>{
     if(!chatIsOpen){
       toggleChat();
