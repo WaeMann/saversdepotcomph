@@ -33,10 +33,10 @@ DevNuts
 *Change the design/theme
 *Add accounts. (Need database)
 *Add promotional/ads products (No accounts- new products. With account- Products based on recent searches/personal info[?])
-*Add more products and career choices.
+**Add more products and career choices.
 *Add ordering system.
 **Removed message from old file
-*Add interactive map for the branches.
+**Add interactive map for the branches.
 
 _______________________________________________
 

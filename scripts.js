@@ -114,13 +114,13 @@ const CHAT_SYSTEM = `You are the friendly and knowledgeable assistant for Savers
 
 PRODUCTS (many items across these categories):
 - Tiles: Wall tiles, floor tiles, outdoor tiles, mosaic (₱320–₱680/pc or sqm)
-- Bathroom: Sanitary ware, showers, faucets, bathtubs, accessories
-- Paints: Boysen, Davies brands; latex, enamel, roof paints, primers
-- Electrical: LED bulbs, panel lights, circuit breakers, outlets, wires, chandeliers
-- Hardware: Power tools (Makita drills), hand tools (Stanley), building materials, ladders
-- Doors & Windows: Wood doors, aluminum windows, steel security doors
-- Plumbing: Waterproofing, PVC pipes, valves
-- Wood Works: Springfield SPC flooring, LVT vinyl, Shera fiber cement boards
+- Bathroom: Sanitary ware, showers, faucets, bathtubs, accessories (₱420–₱18,000/pc or set)
+- Paints: Boysen, Davies brands; latex, enamel, roof paints, primers (₱320–₱780/pc or Liter)
+- Electrical: LED bulbs, panel lights, circuit breakers, outlets, wires, chandeliers (₱180–₱650/pc or set)
+- Hardware: Power tools (Makita drills), hand tools (Stanley), building materials, ladders (₱180–₱3,500/tool or kilos)
+- Doors & Windows: Wood doors, aluminum windows, steel security doors (₱2,800–₱12,500/pc or set)
+- Plumbing: Waterproofing, PVC pipes, valves (₱280–₱1,850/pc, kit or length)
+- Wood Works: Springfield SPC flooring, LVT vinyl, Shera fiber cement boards (₱420–₱780/pc or sqm)
 
 BRANCHES:
 - A.S. Fortuna (Mandaue, Cebu) — 0928-554-7373
@@ -130,7 +130,7 @@ BRANCHES:
 - Bohol (Tagbilaran) — 0947-991-8063
 - Iligan (Lanao del Norte) — 0919-089-6784
 
-DELIVERY: Cebu branches offer delivery via Lalamove. Contact branch directly to arrange.
+DELIVERY: Every branch offers delivery via Lalamove. Contact a branch directly to arrange.
 
 CAREERS: 8+ open positions including Sales Associate, Branch Manager, Warehouse, Social Media Coordinator, Delivery Driver, Marketing Intern. Benefits include HMO, 13th month pay, employee discount, 15 days VL/SL.
 
