@@ -48,7 +48,8 @@ DevComments
 
 -This is only a draft. Expect bugs, errors, and glitches.
 
--Asked some people I know and made them choose which design looks good visually(no functionality, no features, etc.) between the current and the one I made. 
+-Asked some people I know and made them choose which design looks good visually(no functionality, no features, etc.) 
+between the current and the one I made. 
 Here's what they think:
 
 Current: II
