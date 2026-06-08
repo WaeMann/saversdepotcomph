@@ -36,10 +36,28 @@
       <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
       <input type="text" placeholder="Search products…" id="navSearch" oninput="navSearchHandler(this.value)" />
     </div>
-    <button class="btn-ghost" onclick="openSignIn()">
+
+    <!-- SIGN IN BUTTON (shown when logged out) -->
+    <button class="btn-ghost" id="signInBtn" onclick="openSignIn()">
       <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
       Sign In
     </button>
+
+    <!-- USER MENU (shown when logged in) -->
+    <div class="user-menu" id="userMenu" style="display:none">
+      <button class="user-menu-btn" onclick="toggleUserDropdown()">
+        <div class="user-nav-avatar" id="navUserAvatar">U</div>
+        <span id="navUserName">User</span>
+        <svg class="user-menu-chevron" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
+      </button>
+      <div class="user-dropdown" id="userDropdown">
+        <a onclick="showProfile()"><span>👤</span> My Account</a>
+        <a onclick="showProfile();setTimeout(()=>document.querySelectorAll('.profile-nav-item')[1]?.click(),300)"><span>📦</span> My Orders</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-logout" onclick="logout()"><span>🚪</span> Sign Out</a>
+      </div>
+    </div>
+
     <div class="cart-wrap">
       <button class="btn-primary" onclick="openCart()">
         <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
@@ -50,7 +68,9 @@
   </div>
 </nav>
 
-<!-- HOME PAGE -->
+<!-- ═══════════════════════════════════════
+     HOME PAGE
+═══════════════════════════════════════ -->
 <div id="page-home" class="page active">
 <section class="hero">
   <div class="hero-left">
@@ -155,61 +175,22 @@
     <div><div class="sec-label">Our Locations</div><div class="sec-title">Find a Branch Near You</div></div>
   </div>
   <div class="branches-grid">
-    <div class="branch-card" onclick="showBranchMap(
-       'A.S. Fortuna Branch',
-       'https://www.google.com/maps?q=Savers+Depot+A.S.+Fortuna+Mandaue+Cebu&output=embed'
-     )"><div class="branch-region">Cebu</div><div class="branch-name">A.S. Fortuna Branch</div><div class="branch-detail"><span style="opacity:.5;font-size:15px;flex-shrink:0">📍</span><p>E.O. Perez St., North Reclamation Area, Subangdaku, Mandaue City, Cebu</p></div><div class="branch-detail"><span style="opacity:.5;font-size:15px;flex-shrink:0">📞</span><p><a href="tel:+639285547373">0928-554-7373</a></p></div><div class="branch-detail"><span style="opacity:.5;font-size:15px;flex-shrink:0">🚚</span><p>Delivery via Lalamove or preferred courier</p></div><button class="btn-branch" onclick="showToast('Opening Viber...')">📱 Message on Viber</button></div>
-    
-    <div class="branch-card" onclick="showBranchMap(
-       'Lapu-Lapu Branch',
-       'https://www.google.com/maps?q=Savers+Depot+Lapu-Lapu+Cebu&output=embed'
-     )"><div class="branch-region">Cebu</div><div class="branch-name">Lapu-Lapu Branch</div><div class="branch-detail"><span style="opacity:.5;font-size:15px;flex-shrink:0">📍</span><p>Lapu-Lapu City, Cebu</p></div><div class="branch-detail"><span style="opacity:.5;font-size:15px;flex-shrink:0">📞</span><p><a href="tel:+639985912651">0998-591-2651</a></p></div><div class="branch-detail"><span style="opacity:.5;font-size:15px;flex-shrink:0">🚚</span><p>Delivery via Lalamove</p></div><button class="btn-branch" onclick="showToast('Opening Viber...')">📱 Message on Viber</button></div>
-
-    <div class="branch-card" onclick="showBranchMap(
-       'Talamban Branch',
-       'https://www.google.com/maps?q=Savers+Depot+Talamban+Cebu+City&output=embed'
-     )"><div class="branch-region">Cebu</div><div class="branch-name">Talamban Branch</div><div class="branch-detail"><span style="opacity:.5;font-size:15px;flex-shrink:0">📍</span><p>Talamban, Cebu City, Cebu</p></div><div class="branch-detail"><span style="opacity:.5;font-size:15px;flex-shrink:0">📞</span><p><a href="tel:+639985912654">0998-591-2654</a></p></div><div class="branch-detail"><span style="opacity:.5;font-size:15px;flex-shrink:0">🚚</span><p>Delivery via Lalamove</p></div><button class="btn-branch" onclick="showToast('Opening Viber...')">📱 Message on Viber</button></div>
-    
-    <div class="branch-card" onclick="showBranchMap(
-       'Tacloban Branch',
-       'https://www.google.com/maps?q=Savers+Depot+Tacloban+Leyte&output=embed'
-     )"><div class="branch-region">Leyte</div><div class="branch-name">Tacloban Branch</div><div class="branch-detail"><span style="opacity:.5;font-size:15px;flex-shrink:0">📍</span><p>Tacloban City, Leyte</p></div><div class="branch-detail"><span style="opacity:.5;font-size:15px;flex-shrink:0">📞</span><p><a href="tel:+639985912661">0998-591-2661</a></p></div><div class="branch-detail"><span style="opacity:.5;font-size:15px;flex-shrink:0">💬</span><p>FB: Savers Depot Tacloban</p></div><button class="btn-branch" onclick="showToast('Opening Facebook...')">👍 Message on Facebook</button></div>
-    
-    <div class="branch-card" onclick="showBranchMap(
-       'Bohol Branch',
-       'https://www.google.com/maps?q=Savers+Depot+Tagbilaran+Bohol&output=embed'
-     )"><div class="branch-region">Bohol</div><div class="branch-name">Bohol Branch</div><div class="branch-detail"><span style="opacity:.5;font-size:15px;flex-shrink:0">📍</span><p>Tagbilaran City, Bohol</p></div><div class="branch-detail"><span style="opacity:.5;font-size:15px;flex-shrink:0">📞</span><p><a href="tel:+639479918063">0947-991-8063</a></p></div><div class="branch-detail"><span style="opacity:.5;font-size:15px;flex-shrink:0">💬</span><p>FB: Savers Depot Bohol</p></div><button class="btn-branch" onclick="showToast('Opening Facebook...')">👍 Message on Facebook</button></div>
-    
-    <div class="branch-card" onclick="showBranchMap(
-       'Iligan Branch',
-       'https://www.google.com/maps?q=Savers+Depot+Iligan+City&output=embed'
-     )"><div class="branch-region">Iligan</div><div class="branch-name">Iligan Branch</div><div class="branch-detail"><span style="opacity:.5;font-size:15px;flex-shrink:0">📍</span><p>Iligan City, Lanao del Norte</p></div><div class="branch-detail"><span style="opacity:.5;font-size:15px;flex-shrink:0">📞</span><p><a href="tel:+639190896784">0919-089-6784</a></p></div><div class="branch-detail"><span style="opacity:.5;font-size:15px;flex-shrink:0">💬</span><p>FB: Savers Depot Iligan</p></div><button class="btn-branch" onclick="showToast('Opening Facebook...')">👍 Message on Facebook</button></div>
-</div>
-
-    <!-- BRANCH MAP -->
-<div id="mapContainer" style="margin-top:36px;border-radius:16px;overflow:hidden;border:1px solid var(--border);box-shadow:0 4px 20px rgba(0,0,0,.06);">
-  <div style="background:var(--dark);padding:16px 24px;display:flex;align-items:center;gap:10px;">
-    <span style="font-size:16px;">📍</span>
-    <span style="font-family:var(--font-d);font-weight:600;font-size:15px;color:#fff;">
-      Find Us on the Map
-    </span>
-    <span id="mapBranchName"
-      style="font-size:12px;color:rgba(255,255,255,.55);margin-left:auto;">
-      Select a branch
-    </span>
+    <div class="branch-card" onclick="showBranchMap('A.S. Fortuna Branch','https://www.google.com/maps?q=Savers+Depot+A.S.+Fortuna+Mandaue+Cebu&output=embed')"><div class="branch-region">Cebu</div><div class="branch-name">A.S. Fortuna Branch</div><div class="branch-detail"><span style="opacity:.5;font-size:15px;flex-shrink:0">📍</span><p>E.O. Perez St., North Reclamation Area, Subangdaku, Mandaue City, Cebu</p></div><div class="branch-detail"><span style="opacity:.5;font-size:15px;flex-shrink:0">📞</span><p><a href="tel:+639285547373">0928-554-7373</a></p></div><div class="branch-detail"><span style="opacity:.5;font-size:15px;flex-shrink:0">🚚</span><p>Delivery via Lalamove or preferred courier</p></div><button class="btn-branch" onclick="showToast('Opening Viber...')">📱 Message on Viber</button></div>
+    <div class="branch-card" onclick="showBranchMap('Lapu-Lapu Branch','https://www.google.com/maps?q=Savers+Depot+Lapu-Lapu+Cebu&output=embed')"><div class="branch-region">Cebu</div><div class="branch-name">Lapu-Lapu Branch</div><div class="branch-detail"><span style="opacity:.5;font-size:15px;flex-shrink:0">📍</span><p>Lapu-Lapu City, Cebu</p></div><div class="branch-detail"><span style="opacity:.5;font-size:15px;flex-shrink:0">📞</span><p><a href="tel:+639985912651">0998-591-2651</a></p></div><div class="branch-detail"><span style="opacity:.5;font-size:15px;flex-shrink:0">🚚</span><p>Delivery via Lalamove</p></div><button class="btn-branch" onclick="showToast('Opening Viber...')">📱 Message on Viber</button></div>
+    <div class="branch-card" onclick="showBranchMap('Talamban Branch','https://www.google.com/maps?q=Savers+Depot+Talamban+Cebu+City&output=embed')"><div class="branch-region">Cebu</div><div class="branch-name">Talamban Branch</div><div class="branch-detail"><span style="opacity:.5;font-size:15px;flex-shrink:0">📍</span><p>Talamban, Cebu City, Cebu</p></div><div class="branch-detail"><span style="opacity:.5;font-size:15px;flex-shrink:0">📞</span><p><a href="tel:+639985912654">0998-591-2654</a></p></div><div class="branch-detail"><span style="opacity:.5;font-size:15px;flex-shrink:0">🚚</span><p>Delivery via Lalamove</p></div><button class="btn-branch" onclick="showToast('Opening Viber...')">📱 Message on Viber</button></div>
+    <div class="branch-card" onclick="showBranchMap('Tacloban Branch','https://www.google.com/maps?q=Savers+Depot+Tacloban+Leyte&output=embed')"><div class="branch-region">Leyte</div><div class="branch-name">Tacloban Branch</div><div class="branch-detail"><span style="opacity:.5;font-size:15px;flex-shrink:0">📍</span><p>Tacloban City, Leyte</p></div><div class="branch-detail"><span style="opacity:.5;font-size:15px;flex-shrink:0">📞</span><p><a href="tel:+639985912661">0998-591-2661</a></p></div><div class="branch-detail"><span style="opacity:.5;font-size:15px;flex-shrink:0">💬</span><p>FB: Savers Depot Tacloban</p></div><button class="btn-branch" onclick="showToast('Opening Facebook...')">👍 Message on Facebook</button></div>
+    <div class="branch-card" onclick="showBranchMap('Bohol Branch','https://www.google.com/maps?q=Savers+Depot+Tagbilaran+Bohol&output=embed')"><div class="branch-region">Bohol</div><div class="branch-name">Bohol Branch</div><div class="branch-detail"><span style="opacity:.5;font-size:15px;flex-shrink:0">📍</span><p>Tagbilaran City, Bohol</p></div><div class="branch-detail"><span style="opacity:.5;font-size:15px;flex-shrink:0">📞</span><p><a href="tel:+639479918063">0947-991-8063</a></p></div><div class="branch-detail"><span style="opacity:.5;font-size:15px;flex-shrink:0">💬</span><p>FB: Savers Depot Bohol</p></div><button class="btn-branch" onclick="showToast('Opening Facebook...')">👍 Message on Facebook</button></div>
+    <div class="branch-card" onclick="showBranchMap('Iligan Branch','https://www.google.com/maps?q=Savers+Depot+Iligan+City&output=embed')"><div class="branch-region">Iligan</div><div class="branch-name">Iligan Branch</div><div class="branch-detail"><span style="opacity:.5;font-size:15px;flex-shrink:0">📍</span><p>Iligan City, Lanao del Norte</p></div><div class="branch-detail"><span style="opacity:.5;font-size:15px;flex-shrink:0">📞</span><p><a href="tel:+639190896784">0919-089-6784</a></p></div><div class="branch-detail"><span style="opacity:.5;font-size:15px;flex-shrink:0">💬</span><p>FB: Savers Depot Iligan</p></div><button class="btn-branch" onclick="showToast('Opening Facebook...')">👍 Message on Facebook</button></div>
   </div>
-
-  <iframe
-    id="branchMap"
-    width="100%"
-    height="420"
-    style="display:block;border:none;"
-    loading="lazy"
-    referrerpolicy="no-referrer-when-downgrade">
-  </iframe>
-</div>
-
-  </section>
+  <div id="mapContainer" style="margin-top:36px;border-radius:16px;overflow:hidden;border:1px solid var(--border);box-shadow:0 4px 20px rgba(0,0,0,.06);">
+    <div style="background:var(--dark);padding:16px 24px;display:flex;align-items:center;gap:10px;">
+      <span style="font-size:16px;">📍</span>
+      <span style="font-family:var(--font-d);font-weight:600;font-size:15px;color:#fff;">Find Us on the Map</span>
+      <span id="mapBranchName" style="font-size:12px;color:rgba(255,255,255,.55);margin-left:auto;">Select a branch</span>
+    </div>
+    <iframe id="branchMap" width="100%" height="420" style="display:block;border:none;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
+</section>
 
 <section class="sec sec-white" id="blogs">
   <div class="sec-header">
@@ -231,7 +212,9 @@
 </section>
 </div>
 
-<!-- SHOP PAGE -->
+<!-- ═══════════════════════════════════════
+     SHOP PAGE
+═══════════════════════════════════════ -->
 <div id="page-shop" class="page">
 <div class="shop-hero">
   <div><h1>Shop <span>Everything</span></h1><p>Browse our full catalog of hardware, tiles, bathroom, electrical &amp; more</p></div>
@@ -282,7 +265,9 @@
 </div>
 </div>
 
-<!-- CAREERS PAGE -->
+<!-- ═══════════════════════════════════════
+     CAREERS PAGE
+═══════════════════════════════════════ -->
 <div id="page-careers" class="page">
 <div class="careers-hero">
   <div class="sec-label" style="color:var(--orange-light)">Join Our Team</div>
@@ -325,7 +310,79 @@
 </div>
 </div>
 
-<!-- FOOTER -->
+<!-- ═══════════════════════════════════════
+     PROFILE PAGE  ← NEW
+═══════════════════════════════════════ -->
+<div id="page-profile" class="page">
+  <!-- Hero Banner -->
+  <div class="profile-hero-section">
+    <div class="profile-big-avatar" id="profileAvatar">U</div>
+    <div class="profile-hero-info">
+      <div class="profile-hero-name" id="profileFullName">Your Name</div>
+      <div class="profile-hero-email" id="profileUserEmail">email@example.com</div>
+      <div class="profile-hero-meta" id="profileJoined">Member since —</div>
+    </div>
+    <div class="profile-hero-stats">
+      <div class="ph-stat">
+        <div class="ph-stat-num" id="profileOrderCount">0</div>
+        <div class="ph-stat-lbl">Orders</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Profile Body -->
+  <div class="profile-layout">
+    <!-- Sidebar Nav -->
+    <div class="profile-nav">
+      <div class="profile-nav-item active" onclick="switchProfileTab(this,'info')">
+        <span class="profile-nav-icon">👤</span> My Profile
+      </div>
+      <div class="profile-nav-item" onclick="switchProfileTab(this,'orders')">
+        <span class="profile-nav-icon">📦</span> My Orders
+      </div>
+      <div class="profile-nav-divider"></div>
+      <div class="profile-nav-item dropdown-logout" onclick="logout()" style="cursor:pointer">
+        <span class="profile-nav-icon">🚪</span> Sign Out
+      </div>
+    </div>
+
+    <!-- Content -->
+    <div class="profile-content">
+
+      <!-- Profile Info Panel -->
+      <div class="profile-panel" id="profile-info" style="display:block">
+        <div class="profile-section-card">
+          <div class="profile-section-title">Personal Information</div>
+          <div class="profile-section-sub">Update your name, phone number, and delivery address.</div>
+          <div class="form-2col">
+            <div class="form-row"><label>Full Name *</label><input type="text" id="editName" placeholder="Juan dela Cruz"></div>
+            <div class="form-row"><label>Email Address</label><input type="email" id="editEmail" placeholder="you@email.com" readonly style="opacity:.6;cursor:not-allowed"></div>
+          </div>
+          <div class="form-2col">
+            <div class="form-row"><label>Phone Number</label><input type="tel" id="editPhone" placeholder="09XX XXX XXXX"></div>
+            <div class="form-row"><label>City / Province</label><input type="text" id="editCity" placeholder="e.g. Cebu City, Cebu"></div>
+          </div>
+          <div class="form-row"><label>Default Delivery Address</label><input type="text" id="editAddress" placeholder="Street no., Barangay, City"></div>
+          <button class="profile-save-btn" onclick="saveProfileChanges()">Save Changes</button>
+        </div>
+      </div>
+
+      <!-- Orders Panel -->
+      <div class="profile-panel" id="profile-orders" style="display:none">
+        <div class="profile-section-card">
+          <div class="profile-section-title">Order History</div>
+          <div class="profile-section-sub">Click any order to view full details and tracking status.</div>
+          <div id="orderHistoryList"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════ -->
 <footer>
   <div class="footer-top">
     <div>
@@ -347,6 +404,7 @@
       <li><span onclick="goToSection('branches')">Branches</span></li>
       <li><span onclick="showPage('shop')">Shop</span></li>
       <li><span onclick="showPage('careers')">Careers</span></li>
+      <li><span onclick="showProfile()">My Account</span></li>
     </ul></div>
     <div class="footer-col"><h4>Categories</h4><ul>
       <li><span onclick="showPage('shop');setTimeout(()=>filterShopCat('Tiles'),80)">Tiles</span></li>
@@ -364,14 +422,21 @@
   <div class="footer-bottom"><span>© 2025 Savers Depot. All Rights Reserved.</span><span>Privacy Policy</span></div>
 </footer>
 
+<!-- ═══════════════════════════════════════
+     TOAST
+═══════════════════════════════════════ -->
 <div class="toast" id="toast"><div class="toast-dot"></div><span id="toastMsg">Done!</span></div>
 
-<!-- PRODUCT DETAIL MODAL -->
+<!-- ═══════════════════════════════════════
+     PRODUCT DETAIL MODAL (unchanged)
+═══════════════════════════════════════ -->
 <div class="modal-overlay" id="prodModal" onclick="closeProdModal(event)">
   <div class="modal pdetail-modal" id="prodModalContent"></div>
 </div>
 
-<!-- CART MODAL -->
+<!-- ═══════════════════════════════════════
+     CART MODAL  ← "Proceed to Checkout" now calls openCheckout()
+═══════════════════════════════════════ -->
 <div class="modal-overlay" id="cartModal" onclick="closeCartModal(event)">
   <div class="modal cart-modal">
     <button class="modal-close" onclick="document.getElementById('cartModal').classList.remove('open')">×</button>
@@ -379,11 +444,13 @@
     <p style="font-size:13px;color:var(--mid);margin-bottom:16px">Items you've added</p>
     <div id="cartItems"></div>
     <div id="cartTotalRow" style="display:none" class="cart-total"></div>
-    <button class="btn-checkout" onclick="checkout()">Proceed to Checkout</button>
+    <button class="btn-checkout" onclick="openCheckout()">Proceed to Checkout →</button>
   </div>
 </div>
 
-<!-- APPLY MODAL -->
+<!-- ═══════════════════════════════════════
+     APPLY MODAL (unchanged)
+═══════════════════════════════════════ -->
 <div class="modal-overlay" id="applyModal" onclick="closeApplyModal(event)">
   <div class="modal apply-modal">
     <button class="modal-close" onclick="document.getElementById('applyModal').classList.remove('open')">×</button>
@@ -406,20 +473,104 @@
   </div>
 </div>
 
-<!-- SIGN IN MODAL -->
+<!-- ═══════════════════════════════════════
+     SIGN IN / REGISTER MODAL  ← UPDATED with tabs
+═══════════════════════════════════════ -->
 <div class="modal-overlay" id="signInModal" onclick="closeSignIn(event)">
-  <div class="modal" style="max-width:380px">
+  <div class="modal" style="max-width:400px">
     <button class="modal-close" onclick="document.getElementById('signInModal').classList.remove('open')">×</button>
-    <h3 style="font-family:var(--font-d);font-size:22px;margin-bottom:4px">Welcome Back</h3>
-    <p style="font-size:13px;color:var(--mid);margin-bottom:24px">Sign in to your Savers Depot account</p>
-    <div class="form-row"><label>Email Address</label><input type="email" placeholder="you@email.com" id="siEmail"></div>
-    <div class="form-row"><label>Password</label><input type="password" placeholder="••••••••" id="siPw"></div>
-    <button class="btn-add-cart" style="margin-top:4px" onclick="signIn()">Sign In</button>
-    <p style="text-align:center;font-size:13px;color:var(--mid);margin-top:14px">Don't have an account? <span style="color:var(--orange);cursor:pointer;font-weight:500" onclick="showToast('Registration coming soon!')">Register</span></p>
+    <div style="font-family:var(--font-d);font-weight:800;font-size:22px;margin-bottom:4px">Welcome to Savers Depot</div>
+    <p style="font-size:13px;color:var(--mid);margin-bottom:20px">Sign in or create an account to order online and track your purchases.</p>
+
+    <!-- Auth Tabs -->
+    <div class="auth-tabs">
+      <button class="auth-tab active" id="authTabLogin" onclick="switchAuthTab('login')">Sign In</button>
+      <button class="auth-tab" id="authTabReg" onclick="switchAuthTab('register')">Create Account</button>
+    </div>
+
+    <!-- LOGIN FORM -->
+    <div id="authFormLogin">
+      <div class="form-row"><label>Email Address</label><input type="email" placeholder="you@email.com" id="siEmail"></div>
+      <div class="form-row"><label>Password</label><input type="password" placeholder="••••••••" id="siPw"></div>
+      <button class="btn-add-cart" style="margin-top:4px" onclick="signIn()">Sign In</button>
+      <p style="text-align:center;font-size:12px;color:var(--mid);margin-top:12px">Don't have an account? <span style="color:var(--orange);cursor:pointer;font-weight:500" onclick="switchAuthTab('register')">Create one →</span></p>
+    </div>
+
+    <!-- REGISTER FORM -->
+    <div id="authFormRegister" style="display:none">
+      <div class="form-2col">
+        <div class="form-row"><label>Full Name *</label><input type="text" placeholder="Juan dela Cruz" id="regName"></div>
+        <div class="form-row"><label>Phone Number</label><input type="tel" placeholder="09XX XXX XXXX" id="regPhone"></div>
+      </div>
+      <div class="form-row"><label>Email Address *</label><input type="email" placeholder="you@email.com" id="regEmail"></div>
+      <div class="form-2col">
+        <div class="form-row"><label>Password * <span style="font-weight:400;color:var(--mid)">(min 6 chars)</span></label><input type="password" placeholder="••••••••" id="regPw"></div>
+        <div class="form-row"><label>Confirm Password *</label><input type="password" placeholder="••••••••" id="regPwConfirm"></div>
+      </div>
+      <button class="btn-add-cart" style="margin-top:4px" onclick="doRegister()">Create Account</button>
+      <p style="text-align:center;font-size:12px;color:var(--mid);margin-top:12px">Already have an account? <span style="color:var(--orange);cursor:pointer;font-weight:500" onclick="switchAuthTab('login')">Sign in →</span></p>
+    </div>
   </div>
 </div>
 
-<!-- ══════════ CHATBOT ══════════ -->
+<!-- ═══════════════════════════════════════
+     CHECKOUT MODAL  ← NEW (4-step)
+═══════════════════════════════════════ -->
+<div class="modal-overlay" id="checkoutModal" onclick="closeCheckoutModal(event)">
+  <div class="modal checkout-modal">
+    <button class="modal-close" onclick="document.getElementById('checkoutModal').classList.remove('open')">×</button>
+
+    <!-- Step Progress Bar -->
+    <div class="checkout-progress">
+      <div class="checkout-progress-step cps-active" id="csi-1">
+        <div class="cps-dot"><span>1</span></div>
+        <div class="cps-label">Review</div>
+      </div>
+      <div class="checkout-progress-line"></div>
+      <div class="checkout-progress-step" id="csi-2">
+        <div class="cps-dot"><span>2</span></div>
+        <div class="cps-label">Delivery</div>
+      </div>
+      <div class="checkout-progress-line"></div>
+      <div class="checkout-progress-step" id="csi-3">
+        <div class="cps-dot"><span>3</span></div>
+        <div class="cps-label">Payment</div>
+      </div>
+      <div class="checkout-progress-line"></div>
+      <div class="checkout-progress-step" id="csi-4">
+        <div class="cps-dot"><span>4</span></div>
+        <div class="cps-label">Confirm</div>
+      </div>
+    </div>
+
+    <!-- Dynamic step content rendered by JS -->
+    <div id="checkoutContent" class="checkout-content"></div>
+    <div class="checkout-actions" id="checkoutActions"></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     ORDER CONFIRMATION MODAL  ← NEW
+═══════════════════════════════════════ -->
+<div class="modal-overlay" id="orderConfirmModal" onclick="closeOrderConfirmModal(event)">
+  <div class="modal order-confirm-modal">
+    <button class="modal-close" onclick="document.getElementById('orderConfirmModal').classList.remove('open')">×</button>
+    <div id="orderConfirmContent"></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     ORDER DETAIL MODAL  ← NEW
+═══════════════════════════════════════ -->
+<div class="modal-overlay" id="orderDetailModal" onclick="closeOrderDetailModal(event)">
+  <div class="modal order-detail-modal">
+    <div id="orderDetailContent"></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     CHATBOT (unchanged)
+═══════════════════════════════════════ -->
 <button id="chat-fab" onclick="toggleChat()" aria-label="Open chat assistant">
   <svg class="icon-chat" width="24" height="24" fill="none" stroke="#fff" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
   <svg class="icon-close" width="20" height="20" fill="none" stroke="#fff" stroke-width="2.5" viewBox="0 0 24 24" style="display:none"><path d="M18 6 6 18M6 6l12 12"/></svg>
@@ -427,10 +578,7 @@
 
 <div id="chat-window">
   <div class="chat-header">
-    <div class="chat-header-avatar">
-      🏠
-      <div class="chat-avatar-dot"></div>
-    </div>
+    <div class="chat-header-avatar">🏠<div class="chat-avatar-dot"></div></div>
     <div class="chat-header-info">
       <h3>Savers Depot Assistant</h3>
       <p>ONLINE · TYPICALLY REPLIES INSTANTLY</p>
@@ -453,5 +601,6 @@
     </button>
   </div>
 </div>
+
 </body>
 </html>
